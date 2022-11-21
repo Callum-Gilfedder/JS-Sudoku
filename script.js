@@ -8,8 +8,11 @@ while (i < grid.length) {
     i++
 }
 
+var savedKey = "";
+var savedSquare = "";
+
 function selectSquare () {
-    console.log("Added")
+    savedSquare = document.getElementById(this.id)
 }
 
 // document.addEventListener('keypress', (event) => {
@@ -24,5 +27,10 @@ document.addEventListener("keypress", saveKeyPress)
 var keyPress = 0;
 
 function saveKeyPress(event) {
-    console.log(event.key)
+    var savedKey = event.key;
+    // console.log(event.key)
+    savedSquare.innerHTML = savedKey;
 }
+
+
+
