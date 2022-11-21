@@ -1,5 +1,6 @@
 body {
-    background-color: black;
+    background-color: #222831;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .grid-container {
@@ -17,12 +18,23 @@ body {
     background-color: white;
     height: 40px;
     width: 40px;
+    text-align: center;
+    padding-top: auto;
+    padding-bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
 
+}
+
+.square:hover {
+    background-color: lightgrey;
 }
 
 @media only screen and (min-width: 600px) {
     body {
-        background-color: black;
+        background-color: #222831;
 
     }
 
@@ -30,6 +42,7 @@ body {
         background-color: white;
         height: 70px;
         width: 70px;
+        font-size: x-large;
     }
 
     .grid-container {
