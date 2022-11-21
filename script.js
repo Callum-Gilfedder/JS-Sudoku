@@ -15,21 +15,21 @@ function selectSquare () {
     savedSquare = document.getElementById(this.id)
 }
 
-// document.addEventListener('keypress', (event) => {
-//     var name = event.key;
-//     var code = event.code;
-//     // Alert the key name and key code on keydown
-//     alert(`Key pressed ${name} \r\n Key code value: ${code}`);
-//   }, false);
-
 document.addEventListener("keypress", saveKeyPress)
 
+var numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Enter"]
 var keyPress = 0;
-
 function saveKeyPress(event) {
+    console.log(event.key)
     var savedKey = event.key;
+    if  (numberList.includes(event.key)) {
+        if (savedKey === "Enter") {
+            savedSquare.innerHTML = "";
+        } else {
+            savedSquare.innerHTML = savedKey;
+        }
     // console.log(event.key)
-    savedSquare.innerHTML = savedKey;
+    }
 }
 
 
