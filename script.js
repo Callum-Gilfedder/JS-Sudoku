@@ -33,16 +33,35 @@ function check() {
     var row = Math.ceil(parseInt(savedSquare.id) / 9);
     console.log("Row: " + row);
 
-    var i = 1;
-    while (i < 9) {
-        console.log(grid[i].innerHTML + 9*row)
-        if (savedSquare.innerHTML == (grid[i] + 9*row)) {
-            savedSquare.style.backgroundColor = "red";
-        } else {
-            savedSquare.style.backgroundColor = "green";
+    console.log("Saved square id: " + savedSquare.id)
+
+    for (let i = (9*row - 9); i<9*row; i++) {
+        // console.log("grid: " + grid[i].innerHTML)
+        // console.log("savedSquare: " + savedSquare.innerHTML)
+        
+        console.log("grid" + grid[i].id)
+
+        if (savedSquare.id != grid[i].id) {
+            if (savedSquare.innerHTML == grid[i].innerHTML) {
+                savedSquare.style.color= "red";
+            } else {
+                savedSquare.style.color= "green";
+            }
         }
-        i++;
+        
     }
+
+    // var i = 1;
+    // while (i <= 9) {
+        
+
+    //     if (savedSquare.innerHTML == (grid[i] + 9*row)) {
+    //         savedSquare.style.backgroundColor = "red";
+    //     } else {
+    //         savedSquare.style.backgroundColor = "green";
+    //     }
+    //     i++;
+    // }
 
     
 
