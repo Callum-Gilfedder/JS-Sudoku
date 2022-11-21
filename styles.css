@@ -70,14 +70,14 @@ button {
     .grid-container {
         grid-template-columns: 70px 70px 70px 70px 70px 70px 70px 70px 70px;
         grid-template-rows: 70px 70px 70px 70px 70px 70px 70px 70px 70px;
-        padding-top: 10%;
+        padding-top: 4%;
         padding-bottom: 25%;
         
     }
 
     .button-container {
         padding-top: 0px;
-        margin-top: 10%;
+        margin-top: 5%;
 
     }
     
