@@ -24,6 +24,7 @@ var savedSquare = "";
 
 function selectSquare () {
     savedSquare = document.getElementById(this.id)
+    // document.getElementById(this.id).style.backgroundColor = "red";
 }
 
 

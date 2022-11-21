@@ -25,11 +25,15 @@ body {
     align-items: center;
     justify-content: center;
     font-size: large;
-
 }
 
+.square.alt-color{
+    background-color: lightgrey; 
+}
+
+
 .square:hover {
-    background-color: lightgrey;
+    background-color: darkgrey;
 }
 
 .button-container {
@@ -53,6 +57,7 @@ button {
     margin: 0px 10px 0px 10px;
     justify-content: center;
 }
+
 
 @media only screen and (min-width: 600px) {
     body {
