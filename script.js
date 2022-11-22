@@ -31,45 +31,60 @@ function selectSquare () {
 
 function check() {
     var row = Math.ceil(parseInt(savedSquare.id) / 9);
-    console.log("Row: " + row);
-
-    console.log("Saved square id: " + savedSquare.id)
-
     for (let i = (9*row - 9); i<9*row; i++) {
-        // console.log("grid: " + grid[i].innerHTML)
-        // console.log("savedSquare: " + savedSquare.innerHTML)
-        
-        console.log("grid" + grid[i].id)
-
         if (savedSquare.id != grid[i].id) {
             if (savedSquare.innerHTML == grid[i].innerHTML) {
-                savedSquare.style.color= "red";
-            } else {
-                savedSquare.style.color= "green";
+            var j = 0;
+            while (j < grid.length) {
+                // 
+                if (grid[j].style.backgroundColor == "rgb(255, 160, 122)" || grid[j].style.color == "rgb(255, 0, 0)")  {
+                    if (grid[j].className == "square") {
+                        grid[j].style.backgroundColor = "white";
+                        grid[j].style.color = "black";
+                    } else {
+                        grid[j].style.backgroundColor = "lightgrey";
+                        grid[j].style.color = "black";
+                    }
+                }
+                j++;
             }
-        }
-        
-    }
-
-    // var i = 1;
-    // while (i <= 9) {
-        
-
-    //     if (savedSquare.innerHTML == (grid[i] + 9*row)) {
-    //         savedSquare.style.backgroundColor = "red";
-    //     } else {
-    //         savedSquare.style.backgroundColor = "green";
-    //     }
-    //     i++;
-    // }
-
+            savedSquare.style.color = "red";
+            grid[i].style.backgroundColor = "#FFA07A"; 
+            } 
+        } 
     
-
-    var column = (savedSquare.id % 9);
-    if (column == "0") {
-        column = "9";
     }
-    console.log("Column: " + column);
+    var column = (savedSquare.id % 9)-1;
+    if (column == "0") {
+        column = "8";
+    }
+    for (i = column; i < grid.length; i+=9) {
+        console.log(grid[i])
+        if (savedSquare.id != grid[i].id) {
+            if (savedSquare.innerHTML == grid[i].innerHTML) {
+            var j = 0;
+            while (j < grid.length) {
+                // 
+                if (grid[j].style.backgroundColor == "rgb(255, 160, 122)" || grid[j].style.color == "rgb(255, 0, 0)")  {
+                    if (grid[j].className == "square") {
+                        grid[j].style.backgroundColor = "white";
+                        grid[j].style.color = "black";
+                    } else {
+                        grid[j].style.backgroundColor = "lightgrey";
+                        grid[j].style.color = "black";
+                    }
+                }
+                j++;
+            }
+            savedSquare.style.color = "red";
+            grid[i].style.backgroundColor = "#FFA07A"; 
+            } 
+        } 
+    }
+
+
+
+    // console.log("Column: " + column);
 
     
 }
@@ -79,7 +94,7 @@ document.addEventListener("keypress", saveKeyPress)
 var numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Enter"]
 var keyPress = 0;
 function saveKeyPress(event) {
-    console.log(event.key);
+    // console.log(event.key);
     var savedKey = event.key;
     if  (numberList.includes(event.key)) {
         if (savedKey === "Enter") {
@@ -99,6 +114,7 @@ var solutionSet = []
 var mode = "";
 document.getElementById("easy").addEventListener("click", setEasyBoard)
 function setEasyBoard() {
+
     mode = "easy";
     var set =  ["", "", "4",      "", "5", "",      "", "", "",
             "9", "", "",      "7", "3", "4",      "6", "", "",
