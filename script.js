@@ -59,7 +59,7 @@ function check() {
         column = "8";
     }
     for (i = column; i < grid.length; i+=9) {
-        console.log(grid[i])
+        // console.log(grid[i])
         if (savedSquare.id != grid[i].id) {
             if (savedSquare.innerHTML == grid[i].innerHTML) {
             var j = 0;
@@ -165,6 +165,27 @@ function redirect() {
         // setHardBoard()
     }
 
+}
+
+
+
+document.getElementById("check").addEventListener("click", checkSolution)
+
+
+function checkSolution () {
+    var k = 0;
+    var checkStatus = "checked"
+    document.getElementById("check").innerHTML = "Check";
+
+    while (k < grid.length) {
+        console.log(grid[k].innerHTML)
+        if (grid[k].innerHTML == solutionSet[k]) {
+            grid[k].style.color = "#00A550";
+        } else {
+            grid[k].style.color = "red";
+        }
+        k++;
+    }
 }
 
 
