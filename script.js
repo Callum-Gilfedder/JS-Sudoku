@@ -171,21 +171,36 @@ function redirect() {
 
 document.getElementById("check").addEventListener("click", checkSolution)
 
+var checkStatus = "Un-checked";
 
 function checkSolution () {
     var k = 0;
-    var checkStatus = "checked"
-    document.getElementById("check").innerHTML = "Check";
 
-    while (k < grid.length) {
-        console.log(grid[k].innerHTML)
-        if (grid[k].innerHTML == solutionSet[k]) {
-            grid[k].style.color = "#00A550";
-        } else {
-            grid[k].style.color = "red";
+    if (checkStatus == "Un-checked") {
+        checkStatus = "Checked";
+        document.getElementById("check").innerHTML = "Un-check";
+        while (k < grid.length) {
+            console.log(grid[k].innerHTML)
+            if (grid[k].innerHTML == solutionSet[k]) {
+                grid[k].style.color = "#00A550";
+            } else {
+                grid[k].style.color = "red";
+            }
+            k++;
         }
-        k++;
+        
+    } else if (checkStatus == "Checked") {
+        checkStatus = "Un-checked";
+        document.getElementById("check").innerHTML = "Check";
+        while (k < grid.length) {
+            console.log(grid[k].innerHTML)
+            grid[k].style.color = "black";
+            k++;
+        }
+
     }
+
+
 }
 
 
