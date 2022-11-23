@@ -21,7 +21,6 @@ var savedSquare = "";
 
 
 
-
 function selectSquare () {
     savedSquare = document.getElementById(this.id)
     // document.getElementById(this.id).style.backgroundColor = "red";
@@ -143,10 +142,11 @@ function check() {
                 //     }
                 //     j++; 
                 // }
-                savedSquare.style.color = "red";
+                // savedSquare.style.color = "red";
                 if (grid[parseInt(elements-1)].id != savedSquare.id) {
                 grid[parseInt(elements-1)].style.backgroundColor = "#FFA07A"; 
                 }
+
             }
         }
     }
@@ -215,26 +215,130 @@ function setEasyBoard() {
                         "5", "2", "7",      "4", "6", "3",      "1", "9", "8",
 ]
 
+
+
+
     var i = 0;
     while (i < grid.length) {
         grid[i].innerHTML = set[i];
+        if (grid[i].className == "square") {
+            grid[i].style.backgroundColor = "";
+            grid[i].style.color = "";
+        } else {
+            grid[i].style.backgroundColor = "";
+            grid[i].style.color = "";
+        }
         i++;
     }
 
 
 }
 
-document.getElementById("reset").addEventListener("click", redirect)
+document.getElementById("medium").addEventListener("click", setMediumBoard)
+function setMediumBoard() {
 
+    mode = "medium";
+    var set =  ["2", "", "",      "", "", "",      "6", "9", "",
+            "", "5", "",      "", "", "3",      "", "", "",
+            "1", "7", "",      "", "", "9",      "4", "", "5",
+
+            "", "", "3",      "", "2", "5",      "", "1", "8",
+            "", "", "",      "", "4", "",      "", "", "",
+            "7", "2", "",      "3", "8", "",      "5", "", "",
+
+            "5", "", "2",      "6", "", "",      "", "4", "1",
+            "", "", "",      "5", "", "",      "", "7", "",
+            "", "6", "7",      "", "", "",      "", "", "3",
+]
+    solutionSet = ["2", "3", "4",      "1", "5", "8",      "6", "9", "7",
+    "9", "5", "6",      "4", "7", "3",      "1", "8", "2",
+    "1", "7", "8",      "2", "6", "9",      "4", "3", "5",
+
+    "6", "4", "3",      "9", "2", "5",      "7", "1", "8",
+    "8", "1", "5",      "7", "4", "6",      "3", "2", "9",
+    "7", "2", "9",      "3", "8", "1",      "5", "6", "4",
+
+    "5", "9", "2",      "6", "3", "7",      "8", "4", "1",
+    "3", "8", "1",      "5", "9", "4",      "2", "7", "6",
+    "4", "6", "7",      "8", "1", "2",      "9", "5", "3",
+]
+
+
+
+
+    var i = 0;
+    while (i < grid.length) {
+        grid[i].innerHTML = set[i];
+        if (grid[i].className == "square") {
+            grid[i].style.backgroundColor = "";
+            grid[i].style.color = "";
+        } else {
+            grid[i].style.backgroundColor = "";
+            grid[i].style.color = "";
+        }
+        i++;
+    }
+
+
+}
+
+document.getElementById("hard").addEventListener("click", setHardBoard)
+function setHardBoard() {
+
+    mode = "hard";
+    var set =  ["", "7", "",      "", "", "",      "", "", "4",
+            "", "5", "",      "", "7", "",      "8", "", "",
+            "", "8", "",      "9", "5", "",      "", "", "",
+
+            "", "9", "",      "2", "", "",      "5", "", "1",
+            "", "", "1",      "", "", "",      "4", "", "",
+            "7", "", "5",      "", "", "1",      "", "3", "",
+
+            "", "", "",      "", "1", "6",      "", "8", "",
+            "", "", "2",      "", "3", "",      "", "4", "",
+            "4", "", "",      "", "", "",      "", "6", "",
+]
+    solutionSet = [ "2", "7", "9",      "1", "6", "8",      "3", "5", "4",
+                    "6", "5", "4",      "3", "7", "2",      "8", "1", "9",
+                    "1", "8", "3",      "9", "5", "4",      "6", "2", "7",
+
+                    "8", "9", "6",      "2", "4", "3",      "5", "7", "1",
+                    "3", "2", "1",      "7", "8", "5",      "4", "9", "6",
+                    "7", "4", "5",      "6", "9", "1",      "2", "3", "8",
+
+                    "5", "3", "7",      "4", "1", "6",      "9", "8", "2",
+                    "9", "6", "2",      "8", "3", "7",      "1", "4", "5",
+                    "4", "1", "8",      "5", "2", "9",      "7", "6", "3",
+]
+
+    var i = 0;
+    while (i < grid.length) {
+        grid[i].innerHTML = set[i];
+        if (grid[i].className == "square") {
+            grid[i].style.backgroundColor = "";
+            grid[i].style.color = "";
+        } else {
+            grid[i].style.backgroundColor = "";
+            grid[i].style.color = "";
+        }
+        i++;
+    }
+
+
+}
+
+
+
+
+document.getElementById("reset").addEventListener("click", redirect)
 function redirect() {
-    if (mode === "easy") {
-        console.log(mode)
+    if (mode == "easy") {
         setEasyBoard()
-    } else if (mode === "medium") {
-        console.log(mode)
+    } else if (mode == "medium") {
+        setMediumBoard()
         // setMediumBoard()
     } else {
-        console.log(mode)
+        setHardBoard()
 
         // setHardBoard()
     }
@@ -244,7 +348,6 @@ function redirect() {
 
 
 document.getElementById("check").addEventListener("click", checkSolution)
-
 var checkStatus = "Un-checked";
 
 function checkSolution () {

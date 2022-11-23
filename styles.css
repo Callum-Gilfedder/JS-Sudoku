@@ -36,6 +36,11 @@ body {
     background-color: darkgrey;
 }
 
+.square-animation {
+    background-color: red;
+}
+
+
 .button-container {
     display:flex; 
     flex-direction: row; 
