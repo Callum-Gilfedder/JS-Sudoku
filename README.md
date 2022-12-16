@@ -1,7 +1,3 @@
 # Sudoku App
 
-to-do:
-* Sort out red squares remaining.
-* Keep red text maybe?
-* When clicking reset or the difficulty button to reset your difficult, I want the red squares to be returned to their original value.
-* Add on click effect. Hopefully CSS animation.
+![sudoku](https://user-images.githubusercontent.com/94360839/208071261-2f76af68-00b2-447b-9c77-095bab48bec2.gif)
